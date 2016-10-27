@@ -22,7 +22,16 @@ def ex1():
         cv2.waitKey()
 
 
-# def ex2():
+def ex2():
+    imgLena = cv2.imread('LenaX.png')
+    imgGrey = cv2.imread('LenaX.png', 0)
+    mask = 0x0001
+    for i in range(0, 8):
+        imgRet = cv2.bitwise_and(imgLena, mask)
+        imgRet = cv2.normalize(imgRet, None, 0, 255, cv2.NORM_MINMAX)
+        mask <<= 1
+        cv2.imshow('test', imgRet)
+        cv2.waitKey()
 
 def main():
     ex1()
